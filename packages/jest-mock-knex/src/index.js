@@ -52,7 +52,7 @@ export const parser = (builder) => {
     }
     if (sqler.where) {
       _.split(sqler.where, / and | or /i).forEach((item) => {
-        const whereResult = /^(.+)(>?<?!?=|<?>|<|is|in|@@)(.+)$/i.exec(item);
+        const whereResult = /^(.+)(>?<?!?=|<?>|<|is|in|@@|like)(.+)$/i.exec(item);
         if (whereResult) {
           const value = _.trim(whereResult[3], ' \'');
           const valueIn = /^\(([\w?, ]+)\)$/i.exec(value);
